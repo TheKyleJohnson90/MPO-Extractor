@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1332214696 source:/home/kyle/Ubuntu One/CodeingZone/Linux/MPO/main.cpp
+	<iostream>
+	<fstream>
+	<string>
+
