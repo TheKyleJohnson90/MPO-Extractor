@@ -1,0 +1,38 @@
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+DOWNLOADING MPO EXTRACTOR
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Using GitHub via the webbrowser simply click the "Downloads" tab.
+Downloads tab is ussually placed in the top right hand corner.
+Extract your archive (I use zip)
+
+To Find Executables:
+Navigate to /bin/Release/ or also known as \bin\Release\
+There you should find files "README" "MPO" and "MPO.exe"
+Please refrence the README file before continuing here.
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Windows Instructions
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Notes:	"xx.mpo" will be replaced with "Your_File_Name.mpo"
+		i.e "test.mpo" or "tests.mpo" should be included
+	"MPO.exe" is located in /bin/Release/
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Method 01: (aka Drag and Drop)
+
+Click to Drag and Drop your "xxx.mpo" file onto the "MPO.exe"
+
+Method 02: (aka The Comand Prompt)
+
+Copy "MPO.exe" file into the same directory as your "xx.mpo" files.
+or copy your "xx.mpo" into the same directory as "MPO.exe"
+-Just Inusure there in the same directory for easy of use! ;-)
+
+Double Click "MPO.exe" and type in "xx.mpo"
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Linux Instructions
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Currently No Instructions on Execution
