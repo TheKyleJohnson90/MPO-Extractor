@@ -5,24 +5,70 @@
     Created by Kyle Johnson 3/19/2012
 
  */
-
-
+#include <sys/types.h>
+#include <dirent.h>
+#include <errno.h>
+#include <vector>
 #include <iostream>
 #include <fstream>
 #include <string>
 
 using namespace std;
-bool splitmpo(char * argv);
+bool splitmpo(string argv);
+/*function... might want it in some class?*/
+int getdir (string dir, vector<string> &files)
+{
+    DIR *dp;
+    struct dirent *dirp;
+    if((dp  = opendir(dir.c_str())) == NULL) {
+        cout << "Error(" << errno << ") opening " << dir << endl;
+        return errno;
+    }
+
+    while ((dirp = readdir(dp)) != NULL) {
+        files.push_back(string(dirp->d_name));
+    }
+    closedir(dp);
+    return 0;
+}
+
 int main(int argc, char** argv)
 {
+    vector<string> files = vector<string>();
+vector<string> mpofiles = vector<string>();
+
     if(argv[1]==NULL){
         string temp;
-        cout << "Please input file name (Make sure file is located in same dir): ";
+        cout << "\nPlease input name of Directory of .MPO images to process into JPG Artifacts: ";
         cin >>argv[0];
-        splitmpo(argv[0]);
-    }else{
-        splitmpo(argv[1]);
     }
+    if(argv[0]==NULL){
+        argv[0]=".";
+    }
+    argv[1]=argv[0];
+    cout << "Scanning directory to read: "<< argv[1]<<endl;
+
+    getdir(argv[1],files);
+    int found,found2;//caps
+    for (unsigned int i = 0;i < files.size();i++) {
+
+        found=files[i].find(".mpo");
+        found2=files[i].find(".MPO");
+        if ((found)>0){
+
+            mpofiles.push_back(files[i]);
+        }else if ((found2)>0){
+            mpofiles.push_back(files[i]);
+        }
+    }
+    //convert all mpos
+     for (unsigned int i = 0;i < mpofiles.size();i++) {
+        splitmpo(mpofiles[i].c_str());
+        if(i+1==mpofiles.size()){
+        cout<<"\n____________________________\n\nTotal Files Processed: "<< mpofiles.size() << endl;
+        }
+     }
+
     cout << "\nThanks for using MPO Extractor!\n";
     return 0;
 }
@@ -42,7 +88,7 @@ string Int2Str(int number)
     return returnvalue;
 }
 
-bool splitmpo(char *argv)
+bool splitmpo(string argv)
 {
 //   char c;//pointer
     int views = 0;  // number of views (JPG components)
